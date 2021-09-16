@@ -1,20 +1,28 @@
-let someQuadraticCoefficients = [1, 0, -4]
+let someQuadraticCoefficients = [1, 2, -2]
 
 const solveQuadraticEquation = (array) => {
-  const a = array[0]
-  const b = array[1]
-  const c = array[2]
+  let [a, b, c] = array
 
-  if (a === 0) return console.log('"a" cannot equal zero!')
+  // declaration roots
+  let x, x1, x2
+
+  if (a === 0) {
+    console.log('In quadratic equation "a" cannot equal zero! However, we can solve the linear equation!')
+    if (b === 0) {
+       return console.log('a = 0, the equation has no roots!')
+    } else {
+      const linearEquation = (b + 'x') + (c === 0 ? '' : c < 0 ? ' ' + c : ' + ' + c) + ' = 0'
+      console.log('linear equation: ' + linearEquation)
+      x = -c / b
+      return  console.log(`The root: x = ${x}`)
+    }
+  }
 
   const quadraticEquation =
       (a === 1 ? 'x^2' : a + 'x^2') +
       (b === 0 ? '' : b === 1 ? ' + x' : b === -1 ? ' - x' : ' + ' + b + 'x') +
       (c === 0 ? '' : c < 0 ? ' ' + c : ' + ' + c) +
       ' = 0'
-
-  // declaration roots
-  let x1, x2
 
   // calculate discriminant
   const discriminant = b * b - 4 * a * c
