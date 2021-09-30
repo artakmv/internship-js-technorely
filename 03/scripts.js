@@ -79,6 +79,3 @@ class Validator {
     return regExp.test(this.str)
   }
 }
-
-
-
